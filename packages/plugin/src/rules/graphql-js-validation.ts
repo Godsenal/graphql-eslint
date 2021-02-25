@@ -7,7 +7,7 @@ const validationToRule = (
   name: string,
   ruleName: string,
   meta: GraphQLESLintRule['meta']
-): Record<typeof name, GraphQLESLintRule<any, true>> => {
+): Record<string, GraphQLESLintRule<any, true>> => {
   let ruleFn: null | ValidationRule = null;
 
   try {
@@ -56,7 +56,7 @@ const validationToRule = (
   };
 };
 
-export const GRAPHQL_JS_VALIDATIONS: Record<string, GraphQLESLintRule> = {
+export const GRAPHQL_JS_VALIDATIONS = {
   ...validationToRule('executable-definitions', 'ExecutableDefinitions', {
     docs: {
       description: `A GraphQL document is only valid for execution if all definitions are either operation or fragment definitions.`,
